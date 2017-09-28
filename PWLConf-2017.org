@@ -1,0 +1,60 @@
+* PWLConf 2017
+
+** Live Caption Stream
+
+https://www.streamtext.net/player?event=PWL
+
+** Policy
+
+- No questions after talk, ask later
+
+** Delimited Continuations for Everyone
+
+Presenter: Kenichi Asai
+https://pwlconf.org/2017/kenichi-asai/
+Examples were in Haskell (I think)
+
+*** Continuations
+- Identifying continuations and the types
+
+
+*** Delimited Continuations
+https://en.wikipedia.org/wiki/Delimited_continuation
+- Computation delimited upto the computation
+- Example: exiting with shift
+--> multiplying numbers but discarding the continuation if one of them is 0
+--> using shift as an exception handling
+--> because the contination is returned, we can play with it
+- captured continuation is returned immediately
+- Example: reordering with take
+--> if not found, return (NotFound, [])
+--> else, return loop rest (n - 1) in (found, first:: t)
+---> basically cons the remaining elements after adding the found
+- Example: normalization for arithmetic expressions
+--> Used in P. Thielman's Cogen in Six Lines paper ICFP 1996 (http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.51.7918&rep=rep1&type=pdf)
+
+*** Wrapping continuations
+- Steps: Abort, Access, Resume
+
+- Example: concat strings
+--> reset returns the new function with the new string concatenated
+
+*** State Monad
+
+*** Curry-Howard Isomorphism
+https://en.wikibooks.org/wiki/Haskell/The_Curry%E2%80%93Howard_isomorphism
+-Curry-Howard isomorphism says that if the typability  of programs in functional  language corresponds
+one to one to the derivability of form to function in probabilistic logic, and if   you write the system
+and the   intuition system then and   compare them, then you see that those two are exactly  the same.
+- Current proof assistants do not allow exceptions
+- what is type of shift?
+
+*** Summary
+
+- shift and reset are simple but quite expressive
+- relationship to logic aren't well known
+- high order functions are useful even though you can write program without them (I'm guessing this is the equivalence from Curry-Howard Isomorphism)
+
+*** Feedback
+- hard to read the slides with the lighting, I asked on the slack channel
+- code seemed pretty straightforward and possibly useful for other languages too, need time to digest
