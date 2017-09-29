@@ -129,3 +129,29 @@ Messenger.com -> total bugs introduced in the year: 10
 ** Lightweight higher order functions
 
 **
+** To Serve The People: Public Interest Technologists
+- work should be aligned with who you are
+- building social good app/website, etc?
+- Public Interest Technology
+  - Like Public Interest Lawyer
+*** Places to get funding
+- Open Tech Fund
+- Open Knowledge Fund -- needs German resident
+- Fight For the Future
+- Netgain -- creating public interest technologies
+- Institute for the Future -- 1 year commitment, assistance traveling to events, stipend
+- New America - Cybersecurity Initiative -- write research paper, entry to "Future of War" conference
+- Ford Foundation - tech fellow program -- move to NY and work in Ford Foundation
+- Tech Congress - technologists with congressman
+- Code for America - 9 months, working to make govt better
+- Hewlett Foundation -- cyber security funds, competitive salary
+
+*** Conferences
+- Reconfiguring Reality - Oct 10-12 event, Reconfiguring Reality, Menlo Park, CA
+- Aspiration: Non Profit Software Developer Summit. Nov 15 - 17, 2017, Oakland, CA
+- CCC -- Dec 27 - 30, 2017 in Leipzip, Germany
+- Internet Freedom Festival -- Valencia, Spain (March 5-9th, 2018)
+- Re:publica -- May 2 - May 4, 2018, Berlin (Germany). SXSW but German.
+- RightsCon -- Toronto(Canada) May 16-18, 2018. They have helpdesk for journalists and security people. AccessNow
+- Oslo Freedom Forum -- May 28 - May 30, 2018. Like TED but talks are 8 minutes long.
+- Allied Media Conference -- people who identify as female, primarily
