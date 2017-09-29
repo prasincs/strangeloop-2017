@@ -1,0 +1,120 @@
+* Biological path Towards Strong AI
+
+numenta.org
+@rhylight
+
+** Movement
+- Understand the world by moving, interacting with the environment
+** Layers And Columns
+- columns within layers
+** Sparse Distributed Representation
+- sparsity and distribution of neurons are important
+- only 2% are on at any point
+- Similarity score
+- overlap with input-space
+- spatial pooling
+- cells become active and predictive
+
+* Running Programs in Reverse
+
+** Psychology
+- varying displacement and rotation
+- mental simulation as unifying theory in cognition
+
+** Robotics
+- inverse simulation to figure out what needs to be done to get the output you want
+
+** Julia
+- multi method dispatch
+- can look at the generated code from the language
+
+* Lazy Defenses: Using Scaled TTLs to Keep your Cache Correct
+
+Slides:
+https://docs.google.com/presentation/d/1NmYpyJzityaKmWORsMcUFs2HQKi0fS1NTwccEgs87WM/edit
+
+* Aesthetic Engine 2
+
+- Generative brutalist art projects
+
+* "It Me": Under the Hood of Web Authentication
+
+** Passwords
+- Adobe passwords hacked were encrypted, not hashed + salted
+- 2M users were using the same password, we know passwords because hints were not encrypted
+
+** Sessions
+- By framework & send an ID
+- Persistent on client
+  - cookies
+  - {local,session}Storage
+    - vulnerable to XSS but Content-Security-Policy can help
+- Sessions are signed(not encrypted)
+
+** Is the timing difference measureable over the network?
+2007 paper
+
+** Timing-safe string comparison
+- protect against timing attack based on how long verification takes
+- constant time comparison
+- there's no guarantee that it will take exactly same time
+- can use HMAC
+
+** Beyond Passwords
+MFA
+
+** U2F/FIDO
+
+- challenge, signature and validate
+
+* Antics, drift, and chaos
+
+** John Gall - system isn't doing what it says
+- Netflix is a monitoring company with video streaming byproduct - Adrian Crockford
+
+** Fault-Tolerance isn't composable
+- Peter Alvaro
+
+** Checks in Formal verification systems
+- Most bugs in shim layer as opposed to the
+** ETTO Principle
+- Efficiency, Thoroughness tradeoff
+** Decrementalism
+- things get slowly worse over time within an organization
+- how strict or thorough they are changes over time
+** Normalization of Deviance
+- Diane Vaughn
+
+** Simple Systems -> Large Systems evolution
+
+** Chaos Monkey
+- Make wrong things harder
+*** Chaos Engineering
+- Take empirical approach and experiment
+- Find vulnerabilities before they cause outage
+- External Validity problem
+  - You don't get the external validity unless you run on the sample
+- CHAP
+  - CHaos Automation Platform
+- EVCache example
+  - Clone URL
+  - Route to two clusters
+  - Look at behavior & difference between control and experiments
+- http://principlesofchaos.org
+  - Build hypothesis around steady state
+  - Vary real-world events
+  - Run experiments in production
+  - Automate Experiments to Run Continuously
+  - Minimize Blast Radius
+** Summary
+- Systems behave pathologically, but can use experiments to find the problems
+- Chaos provide incentives
+
+** Books
+- The Systems Bible
+- Drift Into Failure
+- Chaos Engineering book
+
+** Universal Reason
+
+- OCaml/Reason that compiles to javascript
