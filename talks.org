@@ -155,3 +155,42 @@ Messenger.com -> total bugs introduced in the year: 10
 - RightsCon -- Toronto(Canada) May 16-18, 2018. They have helpdesk for journalists and security people. AccessNow
 - Oslo Freedom Forum -- May 28 - May 30, 2018. Like TED but talks are 8 minutes long.
 - Allied Media Conference -- people who identify as female, primarily
+* Geo-Replicated Transactions in 1.5RTT
+- http://hack.systems
+- http://github.com/rescrv
+** Eventual Consistency
+- [X] Writes are always local and thus fast
+
+*** Consus Overview
+
+Primary-less design : Applications contact the nearest data center
+Serializable transactions
+Efficient commit: Commit in 3 wide-area message delays
+- 2 messages is the minimum
+- 4 messages is 2-phase commit
+
+
+- Uses 4-5 different Paxos flavors/optimizations in its implementation
+**** Commit Protocol
+
+- Using protocols like Paxos to build a system
+
+**** Traditional Paxos
+
+Paxos makes it possible to learn a value
+- Nontriviality: value must have been proposed
+- Stability: at most one value can be learned
+- Consistency: two different learners cannot learn different values
+
+- Can run n different instances of paxos
+- Paxis ins't log replication, it's choosing single values in sequence
+
+**** Generalized Paxos
+- Mathematical treatment of Paxos
+- Can implement Traditional Paxos on top of Generalized Paxos
+- Stay on fast path and do one-hop aggrement
+- If a proposal comes to one node, it needs to forward that to the leader which proposes
+
+**** Issues with implementation
+- Garbage Collection: Gen. Paxos instance lives only as long as a transaction
+- Deadlock: other protocols cannot progress if there's a deadlock between datacenters
