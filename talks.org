@@ -1,3 +1,6 @@
+* Slides
+https://github.com/strangeloop/StrangeLoop2017/tree/master/slides
+
 * Biological path Towards Strong AI
 
 numenta.org
@@ -38,7 +41,7 @@ https://docs.google.com/presentation/d/1NmYpyJzityaKmWORsMcUFs2HQKi0fS1NTwccEgs8
 - Generative brutalist art projects
 
 * "It Me": Under the Hood of Web Authentication
-
+Slides: https://docs.google.com/presentation/d/e/2PACX-1vRQpAoiitWbkHg5hgtp2b7y5kgEEP7e1Z5aOcOB7c8QzEepCpDrotc-DN-WgzWKMpfCRXPQFaT6pHuL/pub?start=false&loop=false&delayms=60000&slide=id.g2776a6c5c7_2_284
 ** Passwords
 - Adobe passwords hacked were encrypted, not hashed + salted
 - 2M users were using the same password, we know passwords because hints were not encrypted
@@ -67,6 +70,8 @@ MFA
 
 - challenge, signature and validate
 
+* So you wanna Go Fast
+https://github.com/strangeloop/StrangeLoop2017/blob/master/slides/TylerTreat-SoYouWannaGoFast.pdf
 * Antics, drift, and chaos
 
 ** John Gall - system isn't doing what it says
@@ -194,3 +199,148 @@ Paxos makes it possible to learn a value
 **** Issues with implementation
 - Garbage Collection: Gen. Paxos instance lives only as long as a transaction
 - Deadlock: other protocols cannot progress if there's a deadlock between datacenters
+
+* Towards new deep learning abstractions on top of exist frameworks, underlying principles and distributed execution
+
+- Intel Nervana
+
+** Deep Learning
+- Describes deep neural nets
+** Crest Family of Deep Learning Chips from Intel
+- Novel data format -- to be presented at NIPS
+
+** Many to Many Problem
+
+- Frameworks -> Hardware mapping problem
+- Lock-in to ecosystem
+
+** Nervana Graph Project
+https://www.intelnervana.com/
+https://github.com/NervanaSystems/neon
+
+- IR for Deep Learning
+- Compiler backends (transformers)
+- Frontend "connectors"
+- Reference frontend on neon
+*** Computational Graph
+- Dataflow Graph
+- with support for control dependencies for side-effecting operations
+
+*** ONNX - Open Neural Network Exchange
+- They're participating in it
+- at the moment only supports inference
+- drawback: not connected to a compiler infrastructure
+
+*** Graph Connectors
+- Start with graph or layer representation
+
+*** Supports
+- MLP
+- ConvNN
+- RNN
+- GANs
+
+* Automating Cloud Security and Incident Response (DevSecOps)
+- Jearvon Dharrie (Comcast)
+
+- DenyEveryOneButWithMFA policy
+
+- https://www.meetup.com/Software-as-Craft-Philadelphia/
+
+** Infrastructure as Code
+- Terraform
+
+** Verification
+** Accountability
+- Catch things before going to production
+- Code Reviews
+
+** Audit Trails
+- Git commit logs as audit trails
+- Changes are just reverts
+
+** Reusability
+- Terraform remote
+
+** Consistency
+- Modules, with source that's another repo
+
+** Automate
+
+** Tests
+- aws spec for it
+
+** Insight
+
+** Metrics
+- Kibana dashboard
+
+** AWS Config
+- whether the buckets are compliant or not
+- setup a rule and the rule checks certain resources
+- can be pre-baked by AWS or a Lambda function
+
+** Alerts
+- setup rules on what to alert on
+- unauthorized accesses, etc
+
+** Remediation
+- CloudTrail Logs: someone can turn that off
+- Fix, Log, Alert
+- Setup Cloudwatch rule, send to lambda and run the rule
+- Audit -> just write to DynamoDB
+
+** Tainted EC2 instance
+- Fix, Log and remediate
+- Depends on any business need
+- Create sg with no ingress or egress
+
+** Cloud Custodian
+
+** Other tools
+- Security Monkey, Aardvark, Repokid
+- Run aws security benchmark
+- Sentinel
+- Chaos Testing
+* Scaling with Apache Spark (or a lesson in unintended consequences)
+- Holden Karau
+- Author of Spark books - High Performance Spark
+** Why do people come to Spark
+- Hadoop MapReduce
+- Data doesn't fit with existing methods -- Excel, etc
+** Terms
+- RDD, Dataframe, Dataset (dataframe with types)
+
+** Design#1: Lazyness
+*** DAG, Query Plan
+- Uses DAG for resiliency
+*** Debugging issues
+- Figuring out stacktraces
+*** Persist first for checkpointing
+
+** Design#2: Partitioning
+- Non-splittable data has issues with partitioning
+- Partitioners in Spark are deterministic on key input
+  - has to decide purely based on key data
+  - key skew
+  - impacts operations like groupByKey, sortByKey
+- Never use groupByKey
+- reduceByKey, aggregateByKey
+
+- shuffle can cause problems too
+  - sort can also fill up the single machine limit
+  - can add suffix to key, but have to remove the shuffle if you need to join
+- someone's working on a non-deterministic partitioner
+
+** Design#3: Arbitrary Functions
+- key-skew with black-boxes
+- fix: Datasets
+  - Spark is able to understand what you're doing
+  - mix functional and relational style
+** Where do datasets explode
+- Iterative algorithms
+- push downs have issues
+- default shuffle size is sometimes too small for big data
+
+** Apache Aero
+- Interchange between different languages
