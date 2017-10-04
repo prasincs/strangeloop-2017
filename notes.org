@@ -1,0 +1,20 @@
+This is an opinionated list of things that might be useful to ponder further from StrangeLoop 2017. I made a document similar for 2016, which I can't seem to find right now. StrangeLoop tends to attract a very diverse and welcoming set of attendees that are eager to learn new topics and engage with the community both in tech and IRL (I know, strange!!)
+
+** Interesting Topics
+
+- Chaos Engineering
+- Tracing in Distributed Systems
+- Thinking about Latency
+- Performance Topics
+- Open Source Maintenance
+- Diversity in Tech
+
+*** Chaos Engineering
+
+I am getting a growing sense that Software Engineering is growing up and gaining a lot of practices from other fields of engineering and sciences. This is evident if you read Fred Brooks' "Mythical Man-month" and Tracy Kidder's "Soul of a New Machine" -- a lot of lessons are still resonant and applicable many decades after despite radical innovations in underlying technologies. A core theme is that when we moved to "Distributed Systems," and Microservices driven architecture, a lot of the tooling didn't catch up. Same pattern has applied to cloud. The amount of changes and new services that have been introduced in the last few years has taken a long time for software engineers to catch up on.
+Chaos Engineering is one such development and Netflix is leading the charge.
+
+
+*** Open Source Maintenance
+
+In 1999, Eric S. Raymond published [The Cathedral and the Bazzar](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar), which separated the software development world into two big factions -- the Cathedral where closed source software is produced, similar
